@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Elegant wrapper to build the Android APK safely.
+# If local wrapper properties/binaries are missing, falls back to pre-installed system gradle.
+if [ -f "gradle/wrapper/gradle-wrapper.jar" ]; then
+    echo "Using embedded Gradle Wrapper..."
+    exec java -jar gradle/wrapper/gradle-wrapper.jar "$@"
+else
+    echo "Gradle wrapper binary absent. Invoking host Gradle engine..."
+    if command -v gradle >/dev/null 2>&1; then
+        exec gradle "$@"
+    else
+        echo "Error: Neither gradle wrapper nor system gradle could be resolved. Please install Gradle."
+        exit 1
+    fi
+fi
