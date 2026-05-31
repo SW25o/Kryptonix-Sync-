@@ -21,17 +21,18 @@ jobs:
         java-version: '17'
         distribution: 'zulu'
 
-    - name: Grant Execute Permission to Gradle Wrapper
-      run: chmod +x kotlin/app/gradlew
-      continue-on-error: true
+    - name: Setup Gradle Build Engine
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: 8.5
 
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
 
     - name: Build Debug Android Package (APK)
       run: |
-        cd kotlin/app || echo "Root build"
-        ./gradlew assembleDebug --no-daemon
+        cd kotlin/app
+        gradle assembleDebug --no-daemon
 
     - name: Setup Keystore Credentials (AES-256 Recovery)
       run: |
