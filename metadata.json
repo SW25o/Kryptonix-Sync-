@@ -1,0 +1,6 @@
+{
+  "name": "Kryptonix Sync",
+  "description": "Secure private business messaging platform featuring Jetpack Compose mobile client, Ktor server middleware, AES end-to-end encryption, and automated CI/CD workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
