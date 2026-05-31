@@ -46,6 +46,7 @@ abstract class AppDatabase : RoomDatabase() {
          */
         fun getEncryptedDatabase(context: Context, cryptographicPassphrase: ByteArray): AppDatabase {
             return INSTANCE ?: synchronized(this) {
+                SQLiteDatabase.loadLibs(context)
                 val factory = SupportFactory(cryptographicPassphrase)
                 val instance = Room.databaseBuilder(
                     context.applicationContext,

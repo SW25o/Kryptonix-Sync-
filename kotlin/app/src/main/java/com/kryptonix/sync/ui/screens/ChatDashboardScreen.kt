@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.stickyHeader
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -140,7 +141,7 @@ fun ChatDashboardScreen(
             }
         }
 
-        Divider(color = Color(0xFF141A29), thickness = 1.dp, modifier = Modifier.padding(vertical = 8.dp))
+        HorizontalDivider(color = Color(0xFF141A29), thickness = 1.dp, modifier = Modifier.padding(vertical = 8.dp))
 
         // Secured Channel View Area
         if (activeChatRoomPartner == null) {
