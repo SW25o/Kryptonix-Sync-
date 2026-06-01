@@ -1,12 +1,10 @@
 package com.kryptonix.sync.ui.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.stickyHeader
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -37,7 +35,7 @@ data class MessageState(
  * Includes unique ID discovery, reactive secure chat list layout, sticky date grouping,
  * and simulated decryption flows on user frames.
  */
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChatDashboardScreen(
     clientBusinessId: String,
@@ -172,7 +170,7 @@ fun ChatDashboardScreen(
                 reverseLayout = false
             ) {
                 groupedMessages.forEach { (date, messagesInDay) ->
-                    stickyHeader {
+                    item {
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
