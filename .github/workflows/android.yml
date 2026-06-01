@@ -32,7 +32,8 @@ jobs:
     - name: Build Debug Android Package (APK)
       run: |
         cd kotlin/app
-        gradle assembleDebug --no-daemon
+        chmod +x gradlew
+        ./gradlew assembleDebug --no-daemon
 
     - name: Setup Keystore Credentials (AES-256 Recovery)
       run: |
@@ -44,3 +45,4 @@ jobs:
       with:
         name: kryptonix-sync-debug-apk
         path: kotlin/app/build/outputs/apk/debug/app-debug.apk
+        
